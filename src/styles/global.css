@@ -1,0 +1,253 @@
+/* =========================================
+   GLOBAL CSS - Portfolio
+   ========================================= */
+
+/* --- CSS Custom Properties --- */
+:root {
+  --clr-bg: #0d0d14;
+  --clr-surface: #13131e;
+  --clr-surface-2: #1a1a28;
+  --clr-border: rgba(255, 255, 255, 0.07);
+  --clr-primary: #7c6ef2;
+  --clr-primary-light: #9d90f7;
+  --clr-primary-dark: #5b50c9;
+  --clr-accent: #e879f9;
+  --clr-accent-2: #38bdf8;
+  --clr-text: #e8e8f0;
+  --clr-text-muted: #888899;
+  --clr-text-dim: #55556a;
+  --clr-white: #ffffff;
+  --clr-success: #22d3a5;
+
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 40px rgba(124, 110, 242, 0.25);
+  --shadow-glow-accent: 0 0 40px rgba(232, 121, 249, 0.2);
+
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  --navbar-height: 70px;
+  --section-padding: 100px;
+  --container-width: 1120px;
+}
+
+/* --- Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--clr-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--clr-primary-dark);
+  border-radius: var(--radius-full);
+}
+
+/* --- Selection --- */
+::selection {
+  background: var(--clr-primary);
+  color: var(--clr-white);
+}
+
+/* --- App Layout --- */
+.app {
+  min-height: 100vh;
+}
+
+/* --- Container --- */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- Section base --- */
+.section {
+  padding: var(--section-padding) 0;
+  position: relative;
+}
+
+.section__header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section__label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--clr-primary-light);
+  margin-bottom: 12px;
+  padding: 6px 16px;
+  background: rgba(124, 110, 242, 0.1);
+  border: 1px solid rgba(124, 110, 242, 0.2);
+  border-radius: var(--radius-full);
+}
+
+.section__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--clr-white);
+  line-height: 1.2;
+}
+
+.section__subtitle {
+  font-size: 1.05rem;
+  color: var(--clr-text-muted);
+  margin-top: 14px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Gradient text utility --- */
+.gradient-text {
+  background: linear-gradient(135deg, var(--clr-primary-light) 0%, var(--clr-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: var(--radius-full);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-accent));
+  color: var(--clr-white);
+  box-shadow: 0 4px 20px rgba(124, 110, 242, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(124, 110, 242, 0.5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--clr-text);
+  border: 1px solid var(--clr-border);
+  backdrop-filter: blur(8px);
+}
+
+.btn-outline:hover {
+  border-color: var(--clr-primary);
+  color: var(--clr-primary-light);
+  background: rgba(124, 110, 242, 0.07);
+  transform: translateY(-2px);
+}
+
+/* --- Glassmorphism card --- */
+.glass-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  transition: all var(--transition-base);
+}
+
+.glass-card:hover {
+  border-color: rgba(124, 110, 242, 0.3);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-4px);
+}
+
+/* --- Background orbs / decoration --- */
+.bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- Divider --- */
+.divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--clr-primary), var(--clr-accent));
+  border-radius: var(--radius-full);
+  margin: 0 auto;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 72px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding: 56px;
+  }
+}
